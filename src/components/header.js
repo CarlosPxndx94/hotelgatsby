@@ -1,42 +1,48 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react'
+import Helmet from 'react-helmet'
+import { css } from '@emotion/core'
+import Navegacion from './navegacion'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = () => {
+    return (
+        <>
+            <Helmet>
+                <title>Hotel Gatsby</title>
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+            </Helmet>
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+            <header
+                css={css`
+                    background-color: #333;
+                    padding: 1rem;
+                `}
+            >
+                <div
+                    css={css`
+                        max-width: 1200px;
+                        margin: 0 auto;
+
+                        @media (min-width: 768px){
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                        }
+                    `}
+                >
+                    <h1
+                        css={css`
+                            color: #FFF;
+                            text-align: center;
+                        `}
+                    >Hotel Gatsby</h1>
+
+                    <Navegacion />
+
+                </div>
+            </header>
+        </>
+    );
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;
