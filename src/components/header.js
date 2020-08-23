@@ -1,20 +1,21 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { css } from '@emotion/core'
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 import Navegacion from './navegacion'
+
+const EnlaceHome = styled(Link)`
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+`;
 
 const Header = () => {
     return (
         <>
-            <Helmet>
-                <title>Hotel Gatsby</title>
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
-                <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-            </Helmet>
-
             <header
                 css={css`
-                    background-color: #333;
+                    background-color: rgb(44, 62, 88);
                     padding: 1rem;
                 `}
             >
@@ -30,12 +31,11 @@ const Header = () => {
                         }
                     `}
                 >
-                    <h1
-                        css={css`
-                            color: #FFF;
-                            text-align: center;
-                        `}
-                    >Hotel Gatsby</h1>
+                    <EnlaceHome
+                        to="/"
+                    >
+                        <h1>Hotel Gatsby</h1>
+                    </EnlaceHome>
 
                     <Navegacion />
 
